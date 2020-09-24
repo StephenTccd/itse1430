@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace BudgetAccount
+namespace BankAccount
 {
     public class Account
     {
