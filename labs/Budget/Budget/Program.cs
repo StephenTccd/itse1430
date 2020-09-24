@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Stephen Nuguid
+ * ITSE 1430
+ * Lab 1
+ */
+using System;
 using System.Text;
 
 namespace BankAccount
