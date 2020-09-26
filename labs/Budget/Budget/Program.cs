@@ -93,7 +93,7 @@ namespace BankAccount
             string category;
             double amount;
             int response = 0;
-           
+
             Account accountHolder = null;
             Management registration = new Management();
 
@@ -127,7 +127,7 @@ namespace BankAccount
 
                     case 1:
                     Console.Write("Enter amount : ");
-                    amount = registration.GetMoney(); 
+                    amount = registration.GetMoney();
                     if (amount < 0)
                     {
                         Console.WriteLine("You are not allowed to put money below $0.");
@@ -138,7 +138,7 @@ namespace BankAccount
                     } else
                         accountHolder.Balance = accountHolder.Balance + amount;
                     Console.Write("Description (required): ");
-                    description = ReadString(true); 
+                    description = ReadString(true);
                     Console.Write("Category (optional): ");
                     category = ReadString(false);
                     Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
@@ -175,6 +175,7 @@ namespace BankAccount
 
                     case 3:
                     Console.WriteLine("Are you sure to exit? [Y/N]");
+                    break;
                     return 0;
 
 
@@ -198,6 +199,7 @@ namespace BankAccount
                 DisplayError("Please enter description");
             } while (true);
         }
+        
         private static void DisplayError ( string message )
         {
             Console.BackgroundColor = ConsoleColor.Red;
