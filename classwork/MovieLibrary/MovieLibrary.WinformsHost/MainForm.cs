@@ -32,7 +32,16 @@ namespace MovieLibrary.WinformsHost
 
             //member access operator ::=   E . M
             movie.Name = "Jaws";
-            //var str = movie.description;            
+            //var str = movie.description;           
+
+            toolStripMenuItem5.Click += OnMovieAdd;
+        }
+
+        private void OnMovieAdd ( object sender, EventArgs e )
+        {
+            var form = new MovieForm();
+
+            form.ShowDialog();
         }
     }
 }

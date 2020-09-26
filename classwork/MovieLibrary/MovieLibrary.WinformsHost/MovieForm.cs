@@ -15,22 +15,7 @@ namespace MovieLibrary.WinformsHost
             InitializeComponent();
         }
 
-        private void label3_Click ( object sender, EventArgs e )
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged ( object sender, EventArgs e )
-        {
-
-        }
-
-        private void label4_Click ( object sender, EventArgs e )
-        {
-
-        }
-
-        private void button2_Click ( object sender, EventArgs e )
+        private void _txtDescription_TextChanged ( object sender, EventArgs e )
         {
 
         }

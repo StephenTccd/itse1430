@@ -93,7 +93,7 @@ namespace BankAccount
             string category;
             double amount;
             int response = 0;
-
+           
             Account accountHolder = null;
             Management registration = new Management();
 
@@ -176,7 +176,7 @@ namespace BankAccount
                     case 3:
                     Console.WriteLine("Are you sure to exit? [Y/N]");
                     return 0;
-                   
+
 
                 }
                 if ((response < 1) || (response > 3))
