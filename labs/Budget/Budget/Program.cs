@@ -175,7 +175,6 @@ namespace BankAccount
 
                     case 3:
                     Console.WriteLine("Are you sure to exit? [Y/N]");
-                    break;
                     return 0;
 
 
