@@ -30,22 +30,47 @@ namespace BankAccount
             Account client = new Account();
 
             Console.WriteLine("*******************************************");
+            Console.WriteLine("-------------------------------------------");
             Console.WriteLine("-------------* Budget Bank *--------------");
             Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("*******************************************");
             Console.Write("Enter customer name: ");
-            client.FullName = Console.ReadLine();
+            client.FullName = ReadName(true);
             Console.Write("Enter a number for the new account: ");
-            client.AccountNumber = Console.ReadLine();
+            client.AccountNumber = ReadAccountNum(true);
 
             return client;
         }
+        static string ReadName ( bool required )
+        {
+            do
+            {
+                string value = Console.ReadLine();
 
+                if (!required || value != "")
+                    return value;
+
+                DisplayError("Please enter name");
+            } while (true);
+        }
+        static string ReadAccountNum ( bool required )
+        {
+            do
+            {
+                string value = Console.ReadLine();
+
+                if (!required || value != "")
+                    return value;
+
+                DisplayError("Please enter valid number");
+            } while (true);
+        }
         public double GetMoney ()
         {
             double amount = 0;
 
             Console.Write("");
-            amount = double.Parse(Console.ReadLine());
+            amount = Double.Parse(Console.ReadLine());
             return amount;
         }
 
@@ -55,8 +80,8 @@ namespace BankAccount
             Console.WriteLine("-------------* Budget Bank *--------------");
             Console.WriteLine("Customer Account Information");
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("Account #:    {0}", cust.AccountNumber);
             Console.WriteLine("Full Name:    {0}", cust.FullName);
+            Console.WriteLine("Account #:    {0}", cust.AccountNumber);
             Console.WriteLine("Balance:      {0:F}", cust.Balance.ToString("C"));
             Console.WriteLine("*******************************************");
             return;
@@ -67,8 +92,7 @@ namespace BankAccount
             string description;
             string category;
             double amount;
-            int nextAction = 0;
-            bool confirmYN;
+            int response = 0;
 
             Account accountHolder = null;
             Management registration = new Management();
@@ -76,7 +100,7 @@ namespace BankAccount
             Console.Title = "Budget Bank";
 
             accountHolder = registration.CreateNewAccount();
-            Console.WriteLine("Enter the customer's initial deposit amount : ");
+            Console.Write("Enter the customer's initial deposit amount : ");
             accountHolder.Balance = registration.GetMoney();
             Console.Clear();
 
@@ -85,14 +109,14 @@ namespace BankAccount
             do
             {
                 Console.WriteLine("What do you want to do now?");
-                Console.WriteLine("1 - Add Income");
-                Console.WriteLine("2 - Add Expenses");
-                Console.WriteLine("3 - Exit");
+                Console.WriteLine("1. - Add Income");
+                Console.WriteLine("2. - Add Expenses");
+                Console.WriteLine("3. - Exit");
                 Console.Write("Enter your choice: ");
-                nextAction = int.Parse(Console.ReadLine());
+                response = Int32.Parse(Console.ReadLine());
                 Console.Clear();
 
-                switch (nextAction)
+                switch (response)
                 {
                     case 0:
                     Console.Clear();
@@ -103,14 +127,23 @@ namespace BankAccount
 
                     case 1:
                     Console.Write("Enter amount : ");
-                    amount = registration.GetMoney();
-                    accountHolder.Balance = accountHolder.Balance + amount;
-                    Console.WriteLine("Description (required): ");
-                    description = ReadString(true);
-                    Console.WriteLine("Category (optional): ");
+                    amount = registration.GetMoney(); 
+                    if (amount < 0)
+                    {
+                        Console.WriteLine("You are not allowed to put money below $0.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        registration.ShowAccountInformation(accountHolder);
+                        break;
+                    } else
+                        accountHolder.Balance = accountHolder.Balance + amount;
+                    Console.Write("Description (required): ");
+                    description = ReadString(true); 
+                    Console.Write("Category (optional): ");
                     category = ReadString(false);
-                    Console.WriteLine(DateTime.Now);
-                    Console.WriteLine("Amount successfully added!");
+                    Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
+                    Console.WriteLine("\n\nAmount successfully added!");
+                    Console.ReadLine();
 
                     Console.Clear();
                     registration.ShowAccountInformation(accountHolder);
@@ -119,38 +152,40 @@ namespace BankAccount
                     case 2:
                     Console.Write("Enter amount : ");
                     amount = registration.GetMoney();
-                    Console.WriteLine("Description (required): ");
+                    Console.Write("Description (required): ");
                     description = ReadString(true);
-                    Console.WriteLine("Category (optional): ");
+                    Console.Write("Category (optional): ");
                     category = ReadString(false);
-                    Console.WriteLine(DateTime.Now);
+                    Console.WriteLine(DateTime.Now.ToString("MM/dd/yyyy"));
                     if (amount > accountHolder.Balance)
                     {
-                        Console.WriteLine("You are not allowed to withdraw more money than your account has.");
-                        Console.ReadKey();
+                        Console.WriteLine("You are not allowed to spend more money than your account has.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        registration.ShowAccountInformation(accountHolder);
+                        break;
                     } else
                         accountHolder.Balance = accountHolder.Balance - amount;
-                    Console.WriteLine("Amount successfully deducted!");
+                    Console.WriteLine("\n\nAmount successfully deducted!");
+                    Console.ReadLine();
 
                     Console.Clear();
                     registration.ShowAccountInformation(accountHolder);
                     break;
 
                     case 3:
-                    Console.WriteLine("Are you sure to exit? Y/N");
-                    confirmYN = GetYorN();
-                    break;
+                    Console.WriteLine("Are you sure to exit? [Y/N]");
+                    return 0;
+                   
 
                 }
-                if ((nextAction < 1) || (nextAction > 3))
-                    Console.WriteLine(
-                    "Invalid Action: Please enter a value between 1 and 3");
-            } while ((nextAction >= 1) && (nextAction <= 3));
+                if ((response < 1) || (response > 3))
+                    Console.WriteLine("Invalid Action: Please enter a value between 1 and 3");
+            } while ((response >= 1) && (response <= 3));
 
-            Console.ReadKey();
             return 0;
-
         }
+
         static string ReadString ( bool required )
         {
             do
@@ -163,19 +198,6 @@ namespace BankAccount
                 DisplayError("Please enter description");
             } while (true);
         }
-        static bool GetYorN ()
-        {
-            do
-            {
-                ConsoleKeyInfo key = Console.ReadKey();
-                switch (key.Key)
-                {
-                    case ConsoleKey.Y: return true;
-                    case ConsoleKey.N: return false;
-                };
-            } while (true);
-
-        }
         private static void DisplayError ( string message )
         {
             Console.BackgroundColor = ConsoleColor.Red;
@@ -185,5 +207,6 @@ namespace BankAccount
 
             Console.ResetColor();
         }
+        
     }
 }
