@@ -9,6 +9,7 @@ using System.Windows.Forms;
 namespace MovieLibrary.WinformsHost
 {
     // class-declaration ::= [access] [modifiers] class identifier [ : T ]
+    // C# supports only a single base type
     public partial class MovieForm : Form
     {
         //Access:
@@ -22,6 +23,7 @@ namespace MovieLibrary.WinformsHost
 
         // Syntax
         // ctor-declaration ::= [access] T () { S* }
+        //Can call base constructor if needed, base default constructor called if not specified
         public MovieForm ()// : base()
         {
             //DO NOT CALL virtual members inside of constructors
@@ -30,18 +32,21 @@ namespace MovieLibrary.WinformsHost
 
         public MovieForm ( Movie movie ) : this(movie, null)
         {
+            //Constructor chaining eliminates need for this dup initialization
             //Movie = movie;
         }
 
         //Constructor chaining - calling one constructor from another
         public MovieForm ( Movie movie, string title ) : this()
         {
+            //Constructor chaining eliminates need for this dup initialization
             //InitializeComponent();
 
             Movie = movie;
             Text = title ?? "Add Movie";
         }
 
+        //Properties can be virtual if needed but generally does not make sense
         public virtual Movie Movie { get; set; }
 
         //public virtual void OnLoad ( EventArgs e ) { }
@@ -61,6 +66,9 @@ namespace MovieLibrary.WinformsHost
                 _txtRunLength.Text = Movie.RunLength.ToString();
                 _txtReleaseYear.Text = Movie.ReleaseYear.ToString();
             };
+
+            // Go ahead and show validation errors
+            ValidateChildren();
         }
 
         //Method - function inside a class
@@ -74,6 +82,13 @@ namespace MovieLibrary.WinformsHost
         //     void identifier ( object sender, EventArgs e )
         private void OnSave ( object sender, EventArgs e )
         {
+            //Force validation of all controls
+            if (!ValidateChildren())
+            {
+                DialogResult = DialogResult.None;
+                return;
+            };
+
             // I want the button that was clicked
             //Type casting
             // WRONG: var button = (Button)sender;  // C-style cast - crashes if wrong
@@ -125,6 +140,66 @@ namespace MovieLibrary.WinformsHost
                 return result;
 
             return -1;
+        }
+
+        private void label1_Click ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void OnValidateName ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            //Name is required
+            if (String.IsNullOrEmpty(control.Text))
+            {
+                //Set error using ErrorProvider
+                _errors.SetError(control, "Name is required");
+                e.Cancel = true;  //Not validate
+            } else
+            {
+                //Clear error from provider
+                _errors.SetError(control, "");
+            };
+        }
+
+        private void OnValidateRunLength ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = ReadAsInt32(control);
+
+            //Run length >= 0
+            if (value < 0)
+            {
+                //Set error using ErrorProvider
+                _errors.SetError(control, "Run length must be >= 0");
+                e.Cancel = true;  //Not validate
+            } else
+            {
+                //Clear error from provider
+                _errors.SetError(control, "");
+            };
+        }
+
+        private void OnValidateReleaseYear ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = ReadAsInt32(control);
+
+            //Release Year >= 1900
+            if (value < 1900)
+            {
+                //Set error using ErrorProvider
+                _errors.SetError(control, "Release Year must be >= 1900");
+                e.Cancel = true;  //Not validate
+            } else
+            {
+                //Clear error from provider
+                _errors.SetError(control, "");
+            };
         }
     }
 }
