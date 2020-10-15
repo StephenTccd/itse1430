@@ -1,4 +1,4 @@
-﻿namespace MovieLibrary.WinformsHost
+﻿namespace CharacterCreator.Winforms
 {
     partial class MainForm
     {
@@ -11,7 +11,7 @@
         ///  Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose ( bool disposing )
+        protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -26,19 +26,19 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent ()
+        private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this._miFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this._miMovie = new System.Windows.Forms.ToolStripMenuItem();
-            this._miMovieAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this._miMovieEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this._miCharacter = new System.Windows.Forms.ToolStripMenuItem();
+            this._miCharacterAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this._miCharacterEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this._miMovieDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this._miCharacterDelete = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this._lstMovies = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,13 +46,14 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._miFile,
-            this._miMovie,
+            this._miCharacter,
             this._miHelp});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(558, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // _miFile
             // 
@@ -65,43 +66,44 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(93, 22);
+            this.toolStripMenuItem4.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(135, 22);
             this.toolStripMenuItem4.Text = "E&xit";
             // 
-            // _miMovie
+            // _miCharacter
             // 
-            this._miMovie.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._miMovieAdd,
-            this._miMovieEdit,
+            this._miCharacter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._miCharacterAdd,
+            this._miCharacterEdit,
             this.toolStripSeparator1,
-            this._miMovieDelete});
-            this._miMovie.Name = "_miMovie";
-            this._miMovie.Size = new System.Drawing.Size(57, 20);
-            this._miMovie.Text = "&Movies";
+            this._miCharacterDelete});
+            this._miCharacter.Name = "_miCharacter";
+            this._miCharacter.Size = new System.Drawing.Size(75, 20);
+            this._miCharacter.Text = "&Characters";
             // 
-            // _miMovieAdd
+            // _miCharacterAdd
             // 
-            this._miMovieAdd.Name = "_miMovieAdd";
-            this._miMovieAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miMovieAdd.Size = new System.Drawing.Size(118, 22);
-            this._miMovieAdd.Text = "&Add";
+            this._miCharacterAdd.Name = "_miCharacterAdd";
+            this._miCharacterAdd.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this._miCharacterAdd.Size = new System.Drawing.Size(139, 22);
+            this._miCharacterAdd.Text = "&Add";
             // 
-            // _miMovieEdit
+            // _miCharacterEdit
             // 
-            this._miMovieEdit.Name = "_miMovieEdit";
-            this._miMovieEdit.Size = new System.Drawing.Size(118, 22);
-            this._miMovieEdit.Text = "&Edit";
+            this._miCharacterEdit.Name = "_miCharacterEdit";
+            this._miCharacterEdit.Size = new System.Drawing.Size(139, 22);
+            this._miCharacterEdit.Text = "&Edit";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(136, 6);
             // 
-            // _miMovieDelete
+            // _miCharacterDelete
             // 
-            this._miMovieDelete.Name = "_miMovieDelete";
-            this._miMovieDelete.Size = new System.Drawing.Size(118, 22);
-            this._miMovieDelete.Text = "&Delete";
+            this._miCharacterDelete.Name = "_miCharacterDelete";
+            this._miCharacterDelete.Size = new System.Drawing.Size(139, 22);
+            this._miCharacterDelete.Text = "&Delete";
             // 
             // _miHelp
             // 
@@ -118,26 +120,27 @@
             this._miHelpAbout.Size = new System.Drawing.Size(126, 22);
             this._miHelpAbout.Text = "&About";
             // 
-            // _lstMovies
+            // listBox1
             // 
-            this._lstMovies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._lstMovies.FormattingEnabled = true;
-            this._lstMovies.ItemHeight = 15;
-            this._lstMovies.Location = new System.Drawing.Point(0, 24);
-            this._lstMovies.Name = "_lstMovies";
-            this._lstMovies.Size = new System.Drawing.Size(558, 307);
-            this._lstMovies.TabIndex = 1;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(0, 26);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(284, 349);
+            this.listBox1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 331);
-            this.Controls.Add(this._lstMovies);
+            this.ClientSize = new System.Drawing.Size(284, 381);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(260, 420);
             this.Name = "MainForm";
-            this.Text = "Movie Library";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Character Creator";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -150,14 +153,14 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem _miFile;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem _miMovie;
-        private System.Windows.Forms.ToolStripMenuItem _miMovieAdd;
-        private System.Windows.Forms.ToolStripMenuItem _miMovieEdit;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem _miMovieDelete;
+        private System.Windows.Forms.ToolStripMenuItem _miCharacter;
         private System.Windows.Forms.ToolStripMenuItem _miHelp;
+        private System.Windows.Forms.ToolStripMenuItem _miCharacterAdd;
+        private System.Windows.Forms.ToolStripMenuItem _miCharacterEdit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem _miCharacterDelete;
         private System.Windows.Forms.ToolStripMenuItem _miHelpAbout;
-        private System.Windows.Forms.ListBox _lstMovies;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
