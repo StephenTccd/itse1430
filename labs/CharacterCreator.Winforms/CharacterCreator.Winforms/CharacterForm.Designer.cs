@@ -41,11 +41,11 @@
             this._btnSave = new System.Windows.Forms.Button();
             this._btnCancel = new System.Windows.Forms.Button();
             this._errors = new System.Windows.Forms.ErrorProvider(this.components);
-            this._strength = new System.Windows.Forms.Label();
-            this._intellegence = new System.Windows.Forms.Label();
-            this._agility = new System.Windows.Forms.Label();
-            this._constitution = new System.Windows.Forms.Label();
-            this._charisma = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this._txtStrength = new System.Windows.Forms.TextBox();
             this._txtIntellegence = new System.Windows.Forms.TextBox();
             this._txtAgility = new System.Windows.Forms.TextBox();
@@ -62,7 +62,6 @@
             this._name.Size = new System.Drawing.Size(39, 15);
             this._name.TabIndex = 0;
             this._name.Text = "Name";
-            this._name.Click += new System.EventHandler(this.label1_Click);
             // 
             // _profession
             // 
@@ -130,7 +129,6 @@
             this._comboRace.Name = "_comboRace";
             this._comboRace.Size = new System.Drawing.Size(107, 23);
             this._comboRace.TabIndex = 6;
-            this._comboRace.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             this._comboRace.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateRace);
             // 
             // _txtName
@@ -158,6 +156,7 @@
             this._btnSave.TabIndex = 9;
             this._btnSave.Text = "Save";
             this._btnSave.UseVisualStyleBackColor = true;
+            this._btnSave.Click += new System.EventHandler(this.OnSave);
             // 
             // _btnCancel
             // 
@@ -168,57 +167,57 @@
             this._btnCancel.TabIndex = 10;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
+            this._btnCancel.Click += new System.EventHandler(this.OnCancel);
             // 
             // _errors
             // 
             this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this._errors.ContainerControl = this;
             // 
-            // _strength
+            // label1
             // 
-            this._strength.AutoSize = true;
-            this._strength.Location = new System.Drawing.Point(146, 183);
-            this._strength.Name = "_strength";
-            this._strength.Size = new System.Drawing.Size(58, 15);
-            this._strength.TabIndex = 11;
-            this._strength.Text = "Strength :";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(146, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Strength :";
             // 
-            // _intellegence
+            // label2
             // 
-            this._intellegence.AutoSize = true;
-            this._intellegence.Location = new System.Drawing.Point(146, 215);
-            this._intellegence.Name = "_intellegence";
-            this._intellegence.Size = new System.Drawing.Size(77, 15);
-            this._intellegence.TabIndex = 12;
-            this._intellegence.Text = "Intellegence :";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(146, 215);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 15);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Intellegence :";
             // 
-            // _agility
+            // label3
             // 
-            this._agility.AutoSize = true;
-            this._agility.Location = new System.Drawing.Point(146, 247);
-            this._agility.Name = "_agility";
-            this._agility.Size = new System.Drawing.Size(47, 15);
-            this._agility.TabIndex = 13;
-            this._agility.Text = "Agility :";
-            this._agility.Click += new System.EventHandler(this._agility_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(146, 247);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 15);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Agility :";
             // 
-            // _constitution
+            // label4
             // 
-            this._constitution.AutoSize = true;
-            this._constitution.Location = new System.Drawing.Point(144, 278);
-            this._constitution.Name = "_constitution";
-            this._constitution.Size = new System.Drawing.Size(79, 15);
-            this._constitution.TabIndex = 14;
-            this._constitution.Text = "Constitution :";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(144, 278);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 15);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Constitution :";
             // 
-            // _charisma
+            // label5
             // 
-            this._charisma.AutoSize = true;
-            this._charisma.Location = new System.Drawing.Point(146, 309);
-            this._charisma.Name = "_charisma";
-            this._charisma.Size = new System.Drawing.Size(63, 15);
-            this._charisma.TabIndex = 15;
-            this._charisma.Text = "Charisma :";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(146, 309);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 15);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Charisma :";
             // 
             // _txtStrength
             // 
@@ -226,6 +225,7 @@
             this._txtStrength.Name = "_txtStrength";
             this._txtStrength.Size = new System.Drawing.Size(30, 23);
             this._txtStrength.TabIndex = 16;
+            this._txtStrength.Text = "50";
             this._txtStrength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateStrength);
             // 
             // _txtIntellegence
@@ -234,6 +234,7 @@
             this._txtIntellegence.Name = "_txtIntellegence";
             this._txtIntellegence.Size = new System.Drawing.Size(30, 23);
             this._txtIntellegence.TabIndex = 17;
+            this._txtIntellegence.Text = "50";
             this._txtIntellegence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntellegence);
             // 
             // _txtAgility
@@ -242,6 +243,7 @@
             this._txtAgility.Name = "_txtAgility";
             this._txtAgility.Size = new System.Drawing.Size(30, 23);
             this._txtAgility.TabIndex = 18;
+            this._txtAgility.Text = "50";
             this._txtAgility.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateAgility);
             // 
             // _txtConstitution
@@ -250,6 +252,7 @@
             this._txtConstitution.Name = "_txtConstitution";
             this._txtConstitution.Size = new System.Drawing.Size(30, 23);
             this._txtConstitution.TabIndex = 19;
+            this._txtConstitution.Text = "50";
             this._txtConstitution.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateConstitution);
             // 
             // _txtCharisma
@@ -258,6 +261,7 @@
             this._txtCharisma.Name = "_txtCharisma";
             this._txtCharisma.Size = new System.Drawing.Size(30, 23);
             this._txtCharisma.TabIndex = 20;
+            this._txtCharisma.Text = "50";
             this._txtCharisma.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateCharisma);
             // 
             // CharacterForm
@@ -266,17 +270,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this._btnCancel;
-            this.ClientSize = new System.Drawing.Size(594, 582);
+            this.ClientSize = new System.Drawing.Size(383, 517);
             this.Controls.Add(this._txtCharisma);
             this.Controls.Add(this._txtConstitution);
             this.Controls.Add(this._txtAgility);
             this.Controls.Add(this._txtIntellegence);
             this.Controls.Add(this._txtStrength);
-            this.Controls.Add(this._charisma);
-            this.Controls.Add(this._constitution);
-            this.Controls.Add(this._agility);
-            this.Controls.Add(this._intellegence);
-            this.Controls.Add(this._strength);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._txtDescription);
@@ -313,11 +317,11 @@
         private System.Windows.Forms.Button _btnSave;
         private System.Windows.Forms.Button _btnCancel;
         private System.Windows.Forms.ErrorProvider _errors;
-        private System.Windows.Forms.Label _charisma;
-        private System.Windows.Forms.Label _constitution;
-        private System.Windows.Forms.Label _agility;
-        private System.Windows.Forms.Label _intellegence;
-        private System.Windows.Forms.Label _strength;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox _txtCharisma;
         private System.Windows.Forms.TextBox _txtConstitution;
         private System.Windows.Forms.TextBox _txtAgility;

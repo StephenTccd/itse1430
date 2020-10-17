@@ -26,11 +26,11 @@ namespace CharacterCreator
             set { _race = value; }
         }
         private string _race;
-        public int Strength { get; set; }
-        public int Intellegence { get; set; }
-        public int Agility { get; set; }
-        public int Constitution { get; set; }
-        public int Charisma { get; set; }
+        public int Strength { get; set; } = 50;
+        public int Intellegence { get; set; } = 50;
+        public int Agility { get; set; } = 50;
+        public int Constitution { get; set; } = 50;
+        public int Charisma { get; set; } = 50;
         public string Description
         {
             get { return _description ?? ""; }
@@ -43,10 +43,10 @@ namespace CharacterCreator
             if (String.IsNullOrEmpty(Name))
                 return "Name is required";
             
-            if (String.IsNullOrEmpty(Profession)) 
+            if (Profession == null) 
                 return "Profession is required";
 
-            if (String.IsNullOrEmpty(Race))
+            if (Race == null)
                 return "Race is required";
 
             if (Strength < 0)

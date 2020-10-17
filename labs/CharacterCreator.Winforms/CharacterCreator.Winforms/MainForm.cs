@@ -22,9 +22,14 @@ namespace CharacterCreator.Winforms
             character.Description = "Brave Warrior";
 
             _miCharacterAdd.Click += OnCharacterAdd;
-            _miCharacterDelete.Click += OnCharacterDelete;
             _miCharacterEdit.Click += OnCharacterEdit;
-            _miHelpAbout.Click += OnHelpAbout; 
+            _miCharacterDelete.Click += OnCharacterDelete;
+            _miHelpAbout.Click += OnHelpAbout;
+            _miExit.Click += OnFileExit;
+        }
+        private void OnFileExit ( object sender, EventArgs e )
+        {
+            Close();
         }
         private void OnHelpAbout ( object sender, EventArgs e )
         {
@@ -43,13 +48,12 @@ namespace CharacterCreator.Winforms
             _character = form.Character;
             MessageBox.Show("Save successful");
         }
-       
         private void OnCharacterDelete ( object sender, EventArgs e )
         {
             if (_character == null)
                 return;
 
-            switch (MessageBox.Show(this,"Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            switch (MessageBox.Show(this, "Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 case DialogResult.Yes: break;
                 case DialogResult.No: return;
@@ -71,7 +75,15 @@ namespace CharacterCreator.Winforms
             _character = form.Character;
             MessageBox.Show("Save successful");
         }
+        private void RefreshRoster ()
+        {
+            var roster = new BindingList<Character>();
+            roster.Add(_character);
 
+            _lbRoster.DataSource = roster;
+
+            _lbRoster.DisplayMember = "Name";
+        }
         private void menuStrip1_ItemClicked ( object sender, ToolStripItemClickedEventArgs e )
         {
 

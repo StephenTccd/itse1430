@@ -45,6 +45,7 @@ namespace CharacterCreator.Winforms
 
             ValidateChildren();
         }
+        #region Event Handlers
         private void OnCancel ( object sender, EventArgs e )
         {
             Close();
@@ -72,6 +73,7 @@ namespace CharacterCreator.Winforms
             character.Agility = ReadAsInt32(_txtAgility);
             character.Constitution = ReadAsInt32(_txtConstitution);
             character.Charisma = ReadAsInt32(_txtCharisma);
+            
 
 
             var nameLength = Character.MaximumNameLength;
@@ -84,18 +86,11 @@ namespace CharacterCreator.Winforms
                 DialogResult = DialogResult.None;
                 return;
             };
+
             Character = character;
             Close();
         }
-        private int ReadAsInt32 ( Control control )
-        {
-            var text = control.Text;
-
-            if (Int32.TryParse(text, out var result))
-                return result;
-            
-            return -1;
-        }
+        
         private void OnValidateName ( object sender, CancelEventArgs e )
         {
             var control = sender as TextBox;
@@ -230,19 +225,15 @@ namespace CharacterCreator.Winforms
                 _errors.SetError(control, "");
             };
         }
-
-        private void _agility_Click ( object sender, EventArgs e )
+        #endregion
+        private int ReadAsInt32 ( Control control )
         {
+            var text = control.Text;
 
-        }
-        private void label1_Click ( object sender, EventArgs e )
-        {
+            if (Int32.TryParse(text, out var result))
+                return result;
 
-        }
-
-        private void comboBox2_SelectedIndexChanged ( object sender, EventArgs e )
-        {
-
+            return -1;
         }
     }
 }
