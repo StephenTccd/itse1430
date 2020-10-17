@@ -109,10 +109,11 @@
             "Priest",
             "Rogue",
             "Wizard"});
-            this._comboProfession.Location = new System.Drawing.Point(146, 78);
+            this._comboProfession.Location = new System.Drawing.Point(146, 83);
             this._comboProfession.Name = "_comboProfession";
             this._comboProfession.Size = new System.Drawing.Size(107, 23);
             this._comboProfession.TabIndex = 5;
+            this._comboProfession.SelectedIndexChanged += new System.EventHandler(this._comboProfession_SelectedIndexChanged);
             this._comboProfession.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateProfession);
             // 
             // _comboRace
@@ -125,7 +126,7 @@
             "Gnome",
             "Half Elf",
             "Human"});
-            this._comboRace.Location = new System.Drawing.Point(146, 123);
+            this._comboRace.Location = new System.Drawing.Point(146, 128);
             this._comboRace.Name = "_comboRace";
             this._comboRace.Size = new System.Drawing.Size(107, 23);
             this._comboRace.TabIndex = 6;
@@ -133,7 +134,7 @@
             // 
             // _txtName
             // 
-            this._txtName.Location = new System.Drawing.Point(146, 32);
+            this._txtName.Location = new System.Drawing.Point(146, 37);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(185, 23);
             this._txtName.TabIndex = 7;
@@ -141,7 +142,7 @@
             // 
             // _txtDescription
             // 
-            this._txtDescription.Location = new System.Drawing.Point(151, 345);
+            this._txtDescription.Location = new System.Drawing.Point(146, 342);
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
             this._txtDescription.Size = new System.Drawing.Size(180, 95);
@@ -161,7 +162,7 @@
             // _btnCancel
             // 
             this._btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._btnCancel.Location = new System.Drawing.Point(299, 474);
+            this._btnCancel.Location = new System.Drawing.Point(289, 474);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(66, 23);
             this._btnCancel.TabIndex = 10;
@@ -292,11 +293,13 @@
             this.Controls.Add(this._race);
             this.Controls.Add(this._profession);
             this.Controls.Add(this._name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CharacterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Character";
+            this.Text = "Create New Character";
+            this.Load += new System.EventHandler(this.CharacterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

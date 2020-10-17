@@ -17,10 +17,10 @@ namespace CharacterCreator.Winforms
             InitializeComponent();
             Character character;
             character = new Character();
-
+           
             character.Name = "Axe";
             character.Description = "Brave Warrior";
-
+            
             _miCharacterAdd.Click += OnCharacterAdd;
             _miCharacterEdit.Click += OnCharacterEdit;
             _miCharacterDelete.Click += OnCharacterDelete;
@@ -75,7 +75,7 @@ namespace CharacterCreator.Winforms
             _character = form.Character;
             MessageBox.Show("Save successful");
         }
-        private void RefreshRoster ()
+        private void RefreshRoster ( object sender, EventArgs e )
         {
             var roster = new BindingList<Character>();
             roster.Add(_character);

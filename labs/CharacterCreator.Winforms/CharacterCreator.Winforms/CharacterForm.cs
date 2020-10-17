@@ -226,6 +226,7 @@ namespace CharacterCreator.Winforms
             };
         }
         #endregion
+        
         private int ReadAsInt32 ( Control control )
         {
             var text = control.Text;
@@ -234,6 +235,16 @@ namespace CharacterCreator.Winforms
                 return result;
 
             return -1;
+        }
+
+        private void CharacterForm_Load ( object sender, EventArgs e )
+        {
+
+        }
+
+        private void _comboProfession_SelectedIndexChanged ( object sender, EventArgs e )
+        {
+
         }
     }
 }

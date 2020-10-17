@@ -126,14 +126,14 @@
             this._lbRoster.ItemHeight = 15;
             this._lbRoster.Location = new System.Drawing.Point(0, 26);
             this._lbRoster.Name = "_lbRoster";
-            this._lbRoster.Size = new System.Drawing.Size(284, 349);
+            this._lbRoster.Size = new System.Drawing.Size(284, 379);
             this._lbRoster.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 381);
+            this.ClientSize = new System.Drawing.Size(284, 411);
             this.Controls.Add(this._lbRoster);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

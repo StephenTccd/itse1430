@@ -37,7 +37,7 @@ namespace CharacterCreator
             set { _description = value; }
         }
         private string _description;
-
+       
         public string Validate()
         {
             if (String.IsNullOrEmpty(Name))
