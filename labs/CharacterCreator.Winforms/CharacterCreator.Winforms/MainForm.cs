@@ -79,7 +79,7 @@ namespace CharacterCreator.Winforms
         {
             var roster = new BindingList<Character>();
             roster.Add(_character);
-
+            
             _lbRoster.DataSource = roster;
 
             _lbRoster.DisplayMember = "Name";
