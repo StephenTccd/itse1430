@@ -1,4 +1,9 @@
-﻿namespace CharacterCreator.Winforms
+﻿/*
+ * Stephen Nuguid
+ * ITSE 1430
+ * Lab 2
+ */
+namespace CharacterCreator.Winforms
 {
     partial class MainForm
     {
@@ -122,11 +127,12 @@
             // 
             // _lbRoster
             // 
+            this._lbRoster.Dock = System.Windows.Forms.DockStyle.Fill;
             this._lbRoster.FormattingEnabled = true;
             this._lbRoster.ItemHeight = 15;
-            this._lbRoster.Location = new System.Drawing.Point(0, 26);
+            this._lbRoster.Location = new System.Drawing.Point(0, 24);
             this._lbRoster.Name = "_lbRoster";
-            this._lbRoster.Size = new System.Drawing.Size(284, 379);
+            this._lbRoster.Size = new System.Drawing.Size(284, 387);
             this._lbRoster.TabIndex = 1;
             this._lbRoster.Click += new System.EventHandler(this.RefreshRoster);
             // 

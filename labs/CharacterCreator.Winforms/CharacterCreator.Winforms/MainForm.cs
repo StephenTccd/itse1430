@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Stephen Nuguid
+ * ITSE 1430
+ * Lab 2
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -79,9 +84,8 @@ namespace CharacterCreator.Winforms
         {
             var roster = new BindingList<Character>();
             roster.Add(_character);
-            
-            _lbRoster.DataSource = roster;
 
+            _lbRoster.DataSource = roster;
             _lbRoster.DisplayMember = "Name";
         }
         private void menuStrip1_ItemClicked ( object sender, ToolStripItemClickedEventArgs e )

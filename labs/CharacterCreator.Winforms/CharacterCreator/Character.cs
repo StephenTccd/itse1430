@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Stephen Nuguid
+ * ITSE 1430
+ * Lab 2
+ */
+using System;
 
 namespace CharacterCreator
 {
@@ -27,7 +32,7 @@ namespace CharacterCreator
         }
         private string _race;
         public int Strength { get; set; } = 50;
-        public int Intellegence { get; set; } = 50;
+        public int Intelligence { get; set; } = 50;
         public int Agility { get; set; } = 50;
         public int Constitution { get; set; } = 50;
         public int Charisma { get; set; } = 50;
@@ -37,7 +42,7 @@ namespace CharacterCreator
             set { _description = value; }
         }
         private string _description;
-        
+  
         public string Validate()
         {
             if (String.IsNullOrEmpty(Name))
@@ -55,11 +60,11 @@ namespace CharacterCreator
             if (Strength > 100)
                 return "Strength must be less than or equal to 100";
 
-            if (Intellegence < 0)
-                return "Intellegence must be greater than or equal to 0";
+            if (Intelligence < 0)
+                return "Intelligence must be greater than or equal to 0";
 
-            if (Intellegence > 100)
-                return "Intellegence must be less than or equal to 100";
+            if (Intelligence > 100)
+                return "Intelligence must be less than or equal to 100";
 
             if (Agility < 0)
                 return "Agility must be greater than or equal to 0";

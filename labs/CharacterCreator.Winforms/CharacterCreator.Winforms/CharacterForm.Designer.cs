@@ -1,4 +1,9 @@
-﻿namespace CharacterCreator.Winforms
+﻿/*
+ * Stephen Nuguid
+ * ITSE 1430
+ * Lab 2
+ */
+namespace CharacterCreator.Winforms
 {
     partial class CharacterForm
     {
@@ -47,7 +52,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this._txtStrength = new System.Windows.Forms.TextBox();
-            this._txtIntellegence = new System.Windows.Forms.TextBox();
+            this._txtIntelligence = new System.Windows.Forms.TextBox();
             this._txtAgility = new System.Windows.Forms.TextBox();
             this._txtConstitution = new System.Windows.Forms.TextBox();
             this._txtCharisma = new System.Windows.Forms.TextBox();
@@ -189,9 +194,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(146, 215);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 15);
+            this.label2.Size = new System.Drawing.Size(74, 15);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Intellegence :";
+            this.label2.Text = "Intelligence :";
             // 
             // label3
             // 
@@ -229,14 +234,14 @@
             this._txtStrength.Text = "50";
             this._txtStrength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateStrength);
             // 
-            // _txtIntellegence
+            // _txtIntelligence
             // 
-            this._txtIntellegence.Location = new System.Drawing.Point(241, 212);
-            this._txtIntellegence.Name = "_txtIntellegence";
-            this._txtIntellegence.Size = new System.Drawing.Size(30, 23);
-            this._txtIntellegence.TabIndex = 17;
-            this._txtIntellegence.Text = "50";
-            this._txtIntellegence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntellegence);
+            this._txtIntelligence.Location = new System.Drawing.Point(241, 212);
+            this._txtIntelligence.Name = "_txtIntelligence";
+            this._txtIntelligence.Size = new System.Drawing.Size(30, 23);
+            this._txtIntelligence.TabIndex = 17;
+            this._txtIntelligence.Text = "50";
+            this._txtIntelligence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntelligence);
             // 
             // _txtAgility
             // 
@@ -275,7 +280,7 @@
             this.Controls.Add(this._txtCharisma);
             this.Controls.Add(this._txtConstitution);
             this.Controls.Add(this._txtAgility);
-            this.Controls.Add(this._txtIntellegence);
+            this.Controls.Add(this._txtIntelligence);
             this.Controls.Add(this._txtStrength);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -328,7 +333,7 @@
         private System.Windows.Forms.TextBox _txtCharisma;
         private System.Windows.Forms.TextBox _txtConstitution;
         private System.Windows.Forms.TextBox _txtAgility;
-        private System.Windows.Forms.TextBox _txtIntellegence;
+        private System.Windows.Forms.TextBox _txtIntelligence;
         private System.Windows.Forms.TextBox _txtStrength;
     }
 }

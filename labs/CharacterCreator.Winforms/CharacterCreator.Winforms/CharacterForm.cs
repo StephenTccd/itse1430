@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Stephen Nuguid
+ * ITSE 1430
+ * Lab 2
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +42,7 @@ namespace CharacterCreator.Winforms
                 _comboRace.SelectedText = Character.Race;
                 _txtDescription.Text = Character.Description;
                 _txtStrength.Text = Character.Strength.ToString();
-                _txtIntellegence.Text = Character.Intellegence.ToString();
+                _txtIntelligence.Text = Character.Intelligence.ToString();
                 _txtAgility.Text = Character.Agility.ToString();
                 _txtConstitution.Text = Character.Constitution.ToString();
                 _txtCharisma.Text = Character.Charisma.ToString();
@@ -69,7 +74,7 @@ namespace CharacterCreator.Winforms
             character.Race = _comboRace.SelectedText;
             character.Description = _txtDescription.Text;
             character.Strength = ReadAsInt32(_txtStrength);
-            character.Intellegence = ReadAsInt32(_txtIntellegence);
+            character.Intelligence = ReadAsInt32(_txtIntelligence);
             character.Agility = ReadAsInt32(_txtAgility);
             character.Constitution = ReadAsInt32(_txtConstitution);
             character.Charisma = ReadAsInt32(_txtCharisma);
@@ -149,7 +154,7 @@ namespace CharacterCreator.Winforms
                 _errors.SetError(control, "");
             };
         }
-        private void OnValidateIntellegence ( object sender, CancelEventArgs e )
+        private void OnValidateIntelligence ( object sender, CancelEventArgs e )
         {
             var control = sender as TextBox;
 
@@ -157,11 +162,11 @@ namespace CharacterCreator.Winforms
 
             if (value < 0)
             { 
-                _errors.SetError(control, "Intellegence must be >= 0");
+                _errors.SetError(control, "Intelligence must be >= 0");
                 e.Cancel = true;
             } else if (value > 100)
             {
-                _errors.SetError(control, "Intellegence must be <= 100");
+                _errors.SetError(control, "Intelligence must be <= 100");
                 e.Cancel = true;
             } else
             {
