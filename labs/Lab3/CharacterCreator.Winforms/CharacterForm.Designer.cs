@@ -117,7 +117,7 @@ namespace CharacterCreator.Winforms
             this._comboProfession.Location = new System.Drawing.Point(146, 83);
             this._comboProfession.Name = "_comboProfession";
             this._comboProfession.Size = new System.Drawing.Size(107, 23);
-            this._comboProfession.TabIndex = 5;
+            this._comboProfession.TabIndex = 2;
             this._comboProfession.SelectedIndexChanged += new System.EventHandler(this._comboProfession_SelectedIndexChanged);
             this._comboProfession.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateProfession);
             // 
@@ -134,7 +134,7 @@ namespace CharacterCreator.Winforms
             this._comboRace.Location = new System.Drawing.Point(146, 128);
             this._comboRace.Name = "_comboRace";
             this._comboRace.Size = new System.Drawing.Size(107, 23);
-            this._comboRace.TabIndex = 6;
+            this._comboRace.TabIndex = 3;
             this._comboRace.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateRace);
             // 
             // _txtName
@@ -142,7 +142,7 @@ namespace CharacterCreator.Winforms
             this._txtName.Location = new System.Drawing.Point(146, 37);
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(185, 23);
-            this._txtName.TabIndex = 7;
+            this._txtName.TabIndex = 1;
             this._txtName.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateName);
             // 
             // _txtDescription
@@ -151,7 +151,7 @@ namespace CharacterCreator.Winforms
             this._txtDescription.Multiline = true;
             this._txtDescription.Name = "_txtDescription";
             this._txtDescription.Size = new System.Drawing.Size(180, 95);
-            this._txtDescription.TabIndex = 8;
+            this._txtDescription.TabIndex = 9;
             // 
             // _btnSave
             // 
@@ -160,6 +160,7 @@ namespace CharacterCreator.Winforms
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(67, 23);
             this._btnSave.TabIndex = 9;
+            this._btnSave.TabStop = false;
             this._btnSave.Text = "Save";
             this._btnSave.UseVisualStyleBackColor = true;
             this._btnSave.Click += new System.EventHandler(this.OnSave);
@@ -171,6 +172,7 @@ namespace CharacterCreator.Winforms
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(66, 23);
             this._btnCancel.TabIndex = 10;
+            this._btnCancel.TabStop = false;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
             this._btnCancel.Click += new System.EventHandler(this.OnCancel);
@@ -230,7 +232,7 @@ namespace CharacterCreator.Winforms
             this._txtStrength.Location = new System.Drawing.Point(241, 180);
             this._txtStrength.Name = "_txtStrength";
             this._txtStrength.Size = new System.Drawing.Size(30, 23);
-            this._txtStrength.TabIndex = 16;
+            this._txtStrength.TabIndex = 4;
             this._txtStrength.Text = "50";
             this._txtStrength.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateStrength);
             // 
@@ -239,7 +241,7 @@ namespace CharacterCreator.Winforms
             this._txtIntelligence.Location = new System.Drawing.Point(241, 212);
             this._txtIntelligence.Name = "_txtIntelligence";
             this._txtIntelligence.Size = new System.Drawing.Size(30, 23);
-            this._txtIntelligence.TabIndex = 17;
+            this._txtIntelligence.TabIndex = 5;
             this._txtIntelligence.Text = "50";
             this._txtIntelligence.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateIntelligence);
             // 
@@ -248,7 +250,7 @@ namespace CharacterCreator.Winforms
             this._txtAgility.Location = new System.Drawing.Point(241, 244);
             this._txtAgility.Name = "_txtAgility";
             this._txtAgility.Size = new System.Drawing.Size(30, 23);
-            this._txtAgility.TabIndex = 18;
+            this._txtAgility.TabIndex = 6;
             this._txtAgility.Text = "50";
             this._txtAgility.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateAgility);
             // 
@@ -257,7 +259,7 @@ namespace CharacterCreator.Winforms
             this._txtConstitution.Location = new System.Drawing.Point(241, 275);
             this._txtConstitution.Name = "_txtConstitution";
             this._txtConstitution.Size = new System.Drawing.Size(30, 23);
-            this._txtConstitution.TabIndex = 19;
+            this._txtConstitution.TabIndex = 7;
             this._txtConstitution.Text = "50";
             this._txtConstitution.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateConstitution);
             // 
@@ -266,7 +268,7 @@ namespace CharacterCreator.Winforms
             this._txtCharisma.Location = new System.Drawing.Point(241, 306);
             this._txtCharisma.Name = "_txtCharisma";
             this._txtCharisma.Size = new System.Drawing.Size(30, 23);
-            this._txtCharisma.TabIndex = 20;
+            this._txtCharisma.TabIndex = 8;
             this._txtCharisma.Text = "50";
             this._txtCharisma.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateCharisma);
             // 
@@ -334,6 +336,6 @@ namespace CharacterCreator.Winforms
         private System.Windows.Forms.TextBox _txtConstitution;
         private System.Windows.Forms.TextBox _txtAgility;
         private System.Windows.Forms.TextBox _txtIntelligence;
-        private System.Windows.Forms.TextBox _txtStrength;
+        private System.Windows.Forms.TextBox _txtStrength; 
     }
 }
