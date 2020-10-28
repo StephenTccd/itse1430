@@ -1,11 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-   <PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+
+
+</Project>   <PropertyGroup>
       <TargetFramework>netstandard2.0</TargetFramework>
    </PropertyGroup>
 
    <ItemGroup>
       <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
-   </ItemGroup>
-
-</Project>
+   
