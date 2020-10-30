@@ -10,6 +10,7 @@
    </PropertyGroup>
 
    <ItemGroup>
+      <ProjectReference Include="..\MovieLibrary.ConsoleHost\MovieLibrary.ConsoleHost.csproj" />
       <ProjectReference Include="..\MovieLibrary\MovieLibrary.csproj" />
    </ItemGroup>
 
