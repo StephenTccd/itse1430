@@ -18,7 +18,7 @@ namespace CharacterCreator
             set { _name = value; }
         }
         private string _name = "";
-
+        public int Id { get; set; }
         public string Profession
         {
             get { return _profession ?? ""; }
@@ -80,7 +80,7 @@ namespace CharacterCreator
 
             if (Charisma < 0)
                 return "Charisma must be greater than or equal to 0";
-
+            
             if (Charisma > 100)
                 return "Charisma must be less than or equal to 100";
 

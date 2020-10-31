@@ -134,7 +134,6 @@ namespace CharacterCreator.Winforms
             this._lbRoster.Name = "_lbRoster";
             this._lbRoster.Size = new System.Drawing.Size(284, 387);
             this._lbRoster.TabIndex = 1;
-            this._lbRoster.Click += new System.EventHandler(this.RefreshRoster);
             // 
             // MainForm
             // 

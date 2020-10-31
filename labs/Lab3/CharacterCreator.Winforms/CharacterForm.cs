@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -83,14 +84,7 @@ namespace CharacterCreator.Winforms
 
             var nameLength = Character.MaximumNameLength;
             var descriptionLength = character.MaximumDescriptionLength;
-           
-            var error = character.Validate();
-            if (!String.IsNullOrEmpty(error))
-            {
-                MessageBox.Show(this, error, "Save Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DialogResult = DialogResult.None;
-                return;
-            };
+
 
             Character = character;
             Close();

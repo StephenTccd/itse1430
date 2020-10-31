@@ -164,5 +164,15 @@ namespace MovieLibrary
         protected abstract Movie GetByIdCore ( int id );
 
         protected abstract void UpdateCore ( int id, Movie movie );
+
+        public Movie Add ( Movie movie, out string error )
+        {
+            throw new NotImplementedException();
+        }
+
+        string IMovieDatabase.Update ( int id, Movie movie )
+        {
+            throw new NotImplementedException();
+        }
     }
 }
