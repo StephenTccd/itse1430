@@ -4,9 +4,11 @@ using System.Text;
 
 namespace MovieLibrary
 {
-    public class SeedMovieDatabase
+    public static class SeedMovieDatabase
     {
-        public void Seed ( IMovieDatabase database )
+        //Make static because it does not reference any instance data 
+        //nor does it really need to be created
+        public static void Seed ( IMovieDatabase database )
         {
             //Not needed here - clears all items from list
             //_movies.Clear();
@@ -41,7 +43,7 @@ namespace MovieLibrary
 
             //TODO: Fix error handling
             foreach (var item in items)
-                database.Add(item, out var error);
+                database.Add(item);
 
             #region Unused code
             //Seed database
