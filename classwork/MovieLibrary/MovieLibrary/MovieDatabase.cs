@@ -186,16 +186,20 @@ namespace MovieLibrary
         /// <remarks>
         /// The default implementation enumerates all the movies looking for a match.
         /// </remarks>
-        protected virtual Movie GetByName ( string name )
-        {
-            foreach (var movie in GetAll())
-            {
-                if (String.Compare(movie.Name, name, true) == 0)
-                    return movie;
-            };
+        // Expression body method => E;
+        protected virtual Movie GetByName ( string name ) => GetAll().FirstOrDefault(x => String.Compare(x.Name, name, true) == 0);
 
-            return null;
-        }
+        //protected virtual Movie GetByName ( string name )
+        //{
+        //    return GetAll().FirstOrDefault(x => String.Compare(x.Name, name, true) == 0);
+        //    //foreach (var movie in GetAll())
+        //    //{
+        //    //    if (String.Compare(movie.Name, name, true) == 0)
+        //    //        return movie;
+        //    //};
+
+        //    //return null;
+        //}
 
         protected abstract IEnumerable<Movie> GetAllCore ();
 
@@ -203,4 +207,55 @@ namespace MovieLibrary
 
         protected abstract void UpdateCore ( int id, Movie movie );
     }
+
+    // LINQ - Language Integrated Natural Query
+    //   Deferred execution - Next element is not retrieved until needed
+    //      Directory.GetFiles() -> string[] (not)
+    //      Directory.EnumerateFiles() -> IEnumerable<string>  (deferred)
+    //
+    // Common extension methods for IEnumerable<T>
+    //   Conversion (enumerates all the members when called)
+    //     ToArray() -> T[]
+    //     ToList() -> List<T>
+    //   Casting (deferred execution)
+    //     OfType<T>() -> Returns IEnumerable<T> of any items that are compatible with T
+    //     Cast<T>() -> Returns IEnumerable<T> but crashes if anything doesn't match type
+    //   Get item (not deferred) -> T
+    //     First/FirstOrDefault - Gets first item (if any)
+    //     Last/LastOrDefault - Gets last item (if any)
+    //     Single/SingleOrDefault - Gets only item (if any)
+    //  Query -> IEnumerable<T> (replaces foreach)
+    //     Where(Func<T, bool>) -> IEnumerable<T>
+    //     OrderBy(Func<T, member>) -> IEnumerable<T> ordered by member
+    //     Select<K>(Func<T, K>) -> IEnumerable<T> 
+    //     GroupBy() -> grouped IEnumerable<T>
+    //     Join() -> IEnumerable<?>
+
+    // Delegate (function object, functor)
+    //   Treat a function as data 
+    //  Action => void fx ()
+    //  Action<T> => void fx ( T )
+    //  Action<T1, T2> => void fx ( T1, T2 )
+    //  Func<T> => T fx ()
+    //  Func<T, R> => R fx (T)
+    //  Func<T1, T2, R> => R fx (T1, T2)
+    //  
+    // Lambda expression / anonymous methods
+    //    Method that has no name
+    //    parameters => expression
+    //    parameters => { statements* }
+    //    parameter types are inferred, cannot use ref or out
+    //    If you need more than 1 parameter or no parameters use empty parens
+    // 
+    // Expression bodies (limited to methods, constructors, operators, properties)
+    //    method => E;
+    //    T property { get => E; set => S; }
+    //    T prooperty => E;
+    //    Replaces a method body that has a single return statement (compiler rewrites to regular method)   
+
+    // LINQ syntax
+    //     from x in IEnumerable<T> 
+    //     [where lambda expression]
+    //     [orderby member, member]
+    //     select E
 }
