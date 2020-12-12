@@ -5,10 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MovieLibrary.WebHost.Models
@@ -65,11 +62,15 @@ namespace MovieLibrary.WebHost.Models
         public string Rating { get; set; }
 
         //Range enforces a min, max value
+        [DisplayName("Run Length")]
         [Range(0, Int32.MaxValue, ErrorMessage = "Run length must be greater than or equal to 0.")]
         public int RunLength { get; set; }
 
+        [DisplayName("Release Year")]
         [Range(1900, 2100)]
         public int ReleaseYear { get; set; }
+
+        [DisplayName("Is Classic")]
         public bool IsClassic { get; set; }
     }
 }
