@@ -23,7 +23,8 @@ namespace CharacterCreator.Web.Controllers
         public ActionResult Index ()
         {
             var character = _database.GetAll();
-            var model = character.Select(XmlSiteMapProvider => new CharacterModel());
+            var model = character.Select(XmlSiteMapProvider => new CharacterModel())
+                                 .OrderBy(x => x.Name);
             return View();
         }
         public ActionResult Details ( int id )
